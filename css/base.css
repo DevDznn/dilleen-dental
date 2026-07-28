@@ -1,0 +1,150 @@
+:root {
+  --navy: #1d3b57;
+  --navy2: #2a4864;
+  --slate: #6c87a2;
+  --sky: #c9e9f8;
+  --sky-soft: #e9f5fc;
+  --paper: #f8f4f1;
+  --white: #ffffff;
+  --ink: #22364a;
+  --body: #4a5b6c;
+  --line: #e3e9ef;
+  --head: "Poppins", sans-serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--body);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+.btn,
+nav {
+  font-family: var(--head);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 28px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.btn.navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn.navy:hover {
+  background: #274c70;
+  transform: translateY(-1px);
+}
+
+.btn.ghost {
+  border-color: var(--navy);
+  background: transparent;
+  color: var(--navy);
+}
+
+.btn.ghost:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn.sky {
+  background: var(--sky);
+  color: var(--navy);
+}
+
+.btn.sky:hover {
+  background: #b7e2f6;
+}
+
+section {
+  padding: 84px 0;
+}
+
+.kicker {
+  margin-bottom: 12px;
+  color: var(--slate);
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+h2.sec {
+  margin-bottom: 14px;
+  color: var(--navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+p.secsub {
+  max-width: 640px;
+  font-size: 16.5px;
+}
+
+.sechead {
+  margin-bottom: 44px;
+}
+
+.sechead.center {
+  text-align: center;
+}
+
+.sechead.center p.secsub {
+  margin: 0 auto;
+}

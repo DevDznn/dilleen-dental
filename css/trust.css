@@ -1,0 +1,37 @@
+.trust {
+  background: var(--navy);
+  color: #fff;
+}
+
+.trust .wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px 24px;
+}
+
+.t-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.t-item .big {
+  font-family: var(--head);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.t-item .lab {
+  margin-top: 4px;
+  color: #b9cddf;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+@media (max-width: 920px) {
+  .trust .wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

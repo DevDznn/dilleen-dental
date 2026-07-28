@@ -1,0 +1,100 @@
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.svc {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+
+.svc:hover {
+  box-shadow: 0 22px 44px rgba(29, 59, 87, 0.13);
+  transform: translateY(-5px);
+}
+
+.svc .ph {
+  position: relative;
+  height: 170px;
+  background: linear-gradient(135deg, var(--sky-soft), var(--sky) 70%, #aed3e8);
+}
+
+.svc:nth-child(2n) .ph {
+  background: linear-gradient(135deg, #eef3f7, #cfdde9 70%, var(--slate));
+}
+
+.svc .ph .dd {
+  position: absolute;
+  right: -22px;
+  bottom: -30px;
+  width: 150px;
+  opacity: 0.15;
+}
+
+.svc .ph .chip {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--navy);
+  font-family: var(--head);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.svc .bd {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+  padding: 22px 24px 26px;
+}
+
+.svc h3 {
+  color: var(--navy);
+  font-size: 18.5px;
+  font-weight: 600;
+}
+
+.svc p {
+  flex: 1;
+  font-size: 14.5px;
+}
+
+.svc .more {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--slate);
+  font-family: var(--head);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: gap 0.18s;
+}
+
+.svc:hover .more {
+  gap: 12px;
+  color: var(--navy);
+}
+
+@media (max-width: 920px) {
+  .svc-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .svc-grid {
+    grid-template-columns: 1fr;
+  }
+}
