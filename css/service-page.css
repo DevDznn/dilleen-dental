@@ -104,13 +104,20 @@
 .services-hero {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 90% 12%,
-      rgba(207, 231, 242, 0.24) 0,
-      rgba(207, 231, 242, 0) 30%
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(32, 58, 83, 0.96) 0%,
+      rgba(43, 72, 102, 0.88) 48%,
+      rgba(43, 72, 102, 0.68) 100%
     ),
-    var(--navy);
+    url("../images/services/services-bg.png");
+  background-position:
+    center,
+    center 45%;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--white);
 }
 
@@ -375,53 +382,69 @@
   outline-offset: 4px;
 }
 
-/* Bottom CTA */
-
 .services-bottom-cta {
   position: relative;
   overflow: hidden;
-  background: var(--navy);
-}
-
-.services-bottom-cta::after {
-  position: absolute;
-  right: -150px;
-  bottom: -280px;
-  width: 520px;
-  height: 520px;
-  border: 70px solid rgba(207, 231, 242, 0.06);
-  border-radius: 50%;
-  content: "";
+  padding: 72px 0;
+  background: var(--paper);
 }
 
 .services-bottom-cta__inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
   align-items: center;
-  gap: 80px;
-  padding-top: 75px;
-  padding-bottom: 75px;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.services-bottom-cta__inner > div {
+  max-width: 700px;
+}
+
+.services-bottom-cta .services-eyebrow--light {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--slate);
 }
 
 .services-bottom-cta h2 {
-  margin: 0;
-  color: var(--white);
-  font-family: var(--head);
-  font-size: clamp(32px, 4vw, 47px);
-  font-weight: 400;
-  line-height: 1.15;
+  margin: 0 0 14px;
+  color: var(--navy);
 }
 
 .services-bottom-cta p {
-  max-width: 690px;
-  margin: 17px 0 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: var(--body-font);
+  max-width: 620px;
+  margin: 0;
+  color: var(--body);
   line-height: 1.7;
 }
 
+.services-bottom-cta .sp-button--light {
+  flex: 0 0 auto;
+  border: 1px solid var(--navy);
+  background: var(--navy);
+  color: #fff;
+}
+
+.services-bottom-cta .sp-button--light:hover {
+  background: transparent;
+  color: var(--navy);
+}
+
+@media (max-width: 760px) {
+  .services-bottom-cta {
+    padding: 56px 0;
+  }
+
+  .services-bottom-cta__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .services-bottom-cta .sp-button--light {
+    width: 100%;
+  }
+}
 /* Individual service hero */
 
 .single-service-hero {
@@ -939,6 +962,15 @@
 
   .service-card__body {
     padding: 20px 20px 23px;
+  }
+  .services-hero {
+    background-image:
+      linear-gradient(rgba(32, 58, 83, 0.9), rgba(43, 72, 102, 0.88)),
+      url("../images/services/services-hero.jpg");
+
+    background-position:
+      center,
+      65% center;
   }
 }
 
