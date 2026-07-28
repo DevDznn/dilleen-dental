@@ -1009,18 +1009,17 @@ h2 {
 
 .about-team {
   overflow: hidden;
-  background: var(--white);
+  background: #fff;
 }
 
-/* Four dentist cards */
 /* ========================================
-   DENTIST IMAGE CARDS
+   THREE DENTIST IMAGE CARDS
 ======================================== */
 
 .about-team__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .about-team__member {
@@ -1028,14 +1027,14 @@ h2 {
   isolation: isolate;
   overflow: hidden;
   min-width: 0;
-  height: 480px;
+  min-height: 520px;
   border-radius: 20px;
   background: var(--navy);
   box-shadow: 0 14px 34px rgba(29, 59, 87, 0.14);
   cursor: pointer;
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
 }
 
 .about-team__member:hover {
@@ -1047,7 +1046,7 @@ h2 {
 
 .about-team__image {
   position: absolute;
-  z-index: -2;
+  z-index: 0;
   inset: 0;
   display: block;
   width: 100%;
@@ -1055,8 +1054,8 @@ h2 {
   object-fit: cover;
   object-position: center top;
   transition:
-    transform 0.8s ease,
-    filter 0.5s ease;
+    filter 0.55s ease,
+    transform 0.8s ease;
 }
 
 .about-team__member:hover .about-team__image {
@@ -1064,18 +1063,32 @@ h2 {
   transform: scale(1.055);
 }
 
-/* Dark gradient behind the text */
+/* Individual image positioning */
+
+.about-team__member:nth-child(1) .about-team__image {
+  object-position: center 20%;
+}
+
+.about-team__member:nth-child(2) .about-team__image {
+  object-position: center 16%;
+}
+
+.about-team__member:nth-child(3) .about-team__image {
+  object-position: center 18%;
+}
+
+/* Dark gradient behind name and role */
 
 .about-team__overlay {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(22, 47, 70, 0.96) 0%,
-    rgba(29, 59, 87, 0.72) 25%,
-    rgba(29, 59, 87, 0.1) 58%,
-    transparent 75%
+    rgba(20, 43, 63, 0.98) 0%,
+    rgba(29, 59, 87, 0.76) 27%,
+    rgba(29, 59, 87, 0.16) 58%,
+    transparent 76%
   );
   transition: background 0.45s ease;
 }
@@ -1083,14 +1096,14 @@ h2 {
 .about-team__member:hover .about-team__overlay {
   background: linear-gradient(
     to top,
-    rgba(22, 47, 70, 0.98) 0%,
-    rgba(29, 59, 87, 0.78) 30%,
-    rgba(29, 59, 87, 0.16) 62%,
-    transparent 78%
+    rgba(20, 43, 63, 1) 0%,
+    rgba(29, 59, 87, 0.84) 31%,
+    rgba(29, 59, 87, 0.22) 64%,
+    transparent 80%
   );
 }
 
-/* Name and role inside the image */
+/* Text inside the image */
 
 .about-team__content {
   position: absolute;
@@ -1098,7 +1111,7 @@ h2 {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 30px 24px;
+  padding: 32px 26px;
   color: #fff;
   transform: translateY(4px);
   transition: transform 0.4s ease;
@@ -1111,9 +1124,9 @@ h2 {
 .about-team__role {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 6px 11px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  margin-bottom: 11px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
   color: var(--sky);
@@ -1129,53 +1142,14 @@ h2 {
   margin: 0;
   color: #fff;
   font-family: var(--head);
-  font-size: 23px;
+  font-size: clamp(22px, 2vw, 27px);
   font-weight: 600;
   line-height: 1.25;
 }
 
-/* Tablet */
-
-@media (max-width: 1020px) {
-  .about-team__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-team__member {
-    height: 520px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 620px) {
-  .about-team__grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .about-team__member {
-    height: 500px;
-  }
-
-  .about-team__content {
-    padding: 26px 22px;
-  }
-
-  .about-team__content h3 {
-    font-size: 22px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about-team__member,
-  .about-team__image,
-  .about-team__content {
-    transition: none;
-  }
-}
-
-/* Staff group image */
+/* ========================================
+   STAFF GROUP IMAGE
+======================================== */
 
 .about-staff {
   margin-top: 70px;
@@ -1193,7 +1167,7 @@ h2 {
 
 .about-staff__image > img {
   position: absolute;
-  z-index: -2;
+  z-index: 0;
   inset: 0;
   display: block;
   width: 100%;
@@ -1209,19 +1183,20 @@ h2 {
 
 .about-staff__overlay {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(29, 59, 87, 0.94) 0%,
-      rgba(29, 59, 87, 0.82) 38%,
-      rgba(29, 59, 87, 0.34) 68%,
-      rgba(29, 59, 87, 0.12) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(29, 59, 87, 0.94) 0%,
+    rgba(29, 59, 87, 0.82) 38%,
+    rgba(29, 59, 87, 0.34) 68%,
+    rgba(29, 59, 87, 0.12) 100%
+  );
 }
 
 .about-staff__content {
+  position: relative;
+  z-index: 2;
   display: flex;
   min-height: 520px;
   max-width: 590px;
@@ -1255,39 +1230,65 @@ h2 {
   align-self: flex-start;
 }
 
-.btn--light {
+.about-staff .btn--light {
   border: 1px solid #fff;
   background: #fff;
   color: var(--navy);
 }
 
-.btn--light:hover {
+.about-staff .btn--light:hover {
   border-color: var(--sky);
   background: var(--sky);
   color: var(--navy);
 }
 
-/* Tablet */
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 1020px) {
   .about-team__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .about-team__photo {
-    height: 420px;
+  .about-team__member {
+    min-height: 540px;
+  }
+
+  /* Centre the third dentist */
+
+  .about-team__member:last-child {
+    width: calc(50% - 11px);
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 
-/* Mobile */
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 620px) {
   .about-team__grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .about-team__photo {
-    height: 410px;
+  .about-team__member,
+  .about-team__member:last-child {
+    width: 100%;
+    max-width: 440px;
+    min-height: 500px;
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .about-team__content {
+    padding: 26px 22px;
+  }
+
+  .about-team__content h3 {
+    font-size: 23px;
   }
 
   .about-staff {
@@ -1302,8 +1303,8 @@ h2 {
   .about-staff__overlay {
     background: linear-gradient(
       to top,
-      rgba(29, 59, 87, 0.96) 0%,
-      rgba(29, 59, 87, 0.76) 60%,
+      rgba(29, 59, 87, 0.97) 0%,
+      rgba(29, 59, 87, 0.8) 61%,
       rgba(29, 59, 87, 0.22) 100%
     );
   }
@@ -1317,11 +1318,16 @@ h2 {
   .about-staff__content h2 {
     font-size: 31px;
   }
+
+  .about-staff__content .btn {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .about-team__member,
-  .about-team__photo img,
+  .about-team__image,
+  .about-team__content,
   .about-staff__image > img {
     transition: none;
   }
