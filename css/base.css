@@ -9,8 +9,9 @@
   --ink: #22364a;
   --body: #4a5b6c;
   --line: #e3e9ef;
-  --head: "Poppins", sans-serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+   --head: "Jost", sans-serif;
+  --body-font: "Mulish", sans-serif;
+  --sans: "Mulish", sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 * {

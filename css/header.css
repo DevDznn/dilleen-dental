@@ -1,3 +1,22 @@
+:root {
+  --topbar-height: 38px;
+  --header-height: 78px;
+}
+
+.topbar .wrap {
+  min-height: var(--topbar-height);
+}
+
+.nav {
+  min-height: var(--header-height);
+}
+
+@media (max-width: 560px) {
+  :root {
+    --header-height: 66px;
+  }
+}
+
 .topbar {
   background: var(--navy);
   color: #cfe0ee;
