@@ -95,28 +95,106 @@
   pointer-events: none;
 }
 
-/* Full-size About Us photo */
+/* ========================================
+   ABOUT US IMAGE SLIDER
+======================================== */
+
+.ab-art {
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+}
+
+.ab-art .frame {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+  border: 4px solid rgba(255, 255, 255, 0.18);
+  border-radius: 26px 26px 120px 26px;
+  background: #33546f;
+  box-shadow: 0 28px 60px rgba(10, 28, 45, 0.35);
+}
+
+/* Bottom gradient */
+
+.ab-art .frame::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(29, 59, 87, 0.5) 0%,
+    rgba(29, 59, 87, 0.08) 42%,
+    transparent 65%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+/* All three images */
+
 .ab-art .about-photo {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  opacity: 1;
+  opacity: 0;
   object-fit: cover;
-
-  /* Adjust this value if you need the faces higher or lower */
   object-position: center 35%;
-
-  transition: transform 0.6s ease;
+  animation: about-photo-fade 15s ease-in-out infinite;
+  transition: transform 1s ease;
+  will-change: opacity, transform;
 }
+
+
+.ab-art .about-photo:nth-child(1) {
+  z-index: 1;
+  object-position: center 35%;
+  animation-delay: 0s;
+}
+
+.ab-art .about-photo:nth-child(2) {
+  z-index: 1;
+  object-position: center 40%;
+  animation-delay: -10s;
+}
+
+.ab-art .about-photo:nth-child(3) {
+  z-index: 1;
+  object-position: center 35%;
+  animation-delay: -5s;
+}
+
+/* Smooth crossfade */
+
+@keyframes about-photo-fade {
+  0%,
+  28% {
+    opacity: 1;
+  }
+
+  33%,
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Subtle zoom when hovering */
 
 .ab-art:hover .about-photo {
   transform: scale(1.035);
 }
 
 /* Since 1995 badge */
+
 .ab-art .badge2 {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   bottom: 30px;
   left: -16px;
   min-width: 210px;
@@ -144,6 +222,7 @@
 }
 
 /* Tablet */
+
 @media (max-width: 920px) {
   .about .wrap {
     grid-template-columns: 1fr;
@@ -158,6 +237,7 @@
 }
 
 /* Mobile */
+
 @media (max-width: 620px) {
   .about .wrap {
     gap: 42px;
@@ -185,8 +265,16 @@
   }
 }
 
+/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .ab-art .about-photo {
+    opacity: 0;
+    animation: none;
     transition: none;
+  }
+
+  .ab-art .about-photo:first-child {
+    opacity: 1;
   }
 }

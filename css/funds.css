@@ -1,39 +1,14 @@
+/* ========================================
+   PAYMENTS AND HEALTH FUNDS
+======================================== */
+
 .funds {
   background: var(--paper);
 }
 
-.funds-row {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.fund {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
-  color: var(--ink);
-  font-family: var(--head);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.fund .dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--slate);
-}
-
-.funds .note {
-  margin-top: 18px;
-  color: var(--body);
-  font-size: 13.5px;
-}
+/* ========================================
+   PREFERRED PROVIDER AREA
+======================================== */
 
 .pp-wrap {
   display: grid;
@@ -53,6 +28,7 @@
   align-items: flex-start;
   gap: 13px;
   font-size: 15px;
+  line-height: 1.6;
 }
 
 .pp-benefits .tick {
@@ -78,6 +54,10 @@
   font-style: italic;
 }
 
+/* ========================================
+   PROVIDER LABELS
+======================================== */
+
 .provider-label {
   margin-bottom: 14px;
   color: var(--slate);
@@ -88,6 +68,10 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+/* ========================================
+   HEALTH FUND LOGOS
+======================================== */
 
 .logo-grid {
   display: grid;
@@ -104,7 +88,9 @@
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #fff;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .logo-tile:hover {
@@ -116,10 +102,7 @@
   width: auto;
   max-width: 100%;
   max-height: 44px;
-}
-
-.logo-tile.wide {
-  grid-column: span 1;
+  object-fit: contain;
 }
 
 .logo-tile-all-funds {
@@ -133,6 +116,248 @@
   text-align: center;
 }
 
+/* ========================================
+   NIB INFORMATION
+======================================== */
+
+.nib-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 34px;
+  padding: 19px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.nib-note .note-mark {
+  display: flex;
+  flex: 0 0 25px;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--slate);
+  border-radius: 50%;
+  color: var(--navy);
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nib-note p {
+  margin: 0;
+  color: var(--body);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.nib-note b {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ========================================
+   SHARED LOWER SECTION
+======================================== */
+
+.payment-details {
+  margin-top: 54px;
+}
+
+.payment-details .provider-label {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* ========================================
+   GOVERNMENT PROGRAMS
+======================================== */
+
+.program-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.program-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 28px 30px 28px 0;
+}
+
+.program-item + .program-item {
+  padding-right: 0;
+  padding-left: 30px;
+  border-left: 1px solid var(--line);
+}
+
+.program-icon {
+  display: flex;
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--navy);
+}
+
+.program-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.program-copy h3 {
+  margin: 0 0 9px;
+  color: var(--navy);
+  font-family: var(--head);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.program-copy p {
+  margin: 0;
+  color: var(--body);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   INFINITE PAYMENT LOGO SCROLLER
+======================================== */
+
+.payment-options {
+  margin-bottom: 22px;
+  text-align: start;
+  overflow: hidden;
+}
+
+
+.provider-label {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+/* Visible scrolling area */
+
+.payment-logo-grid {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+}
+
+/* Moving track */
+
+.payment-logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: payment-logo-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+/* Two identical logo groups */
+
+.payment-logo-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 64px;
+  padding-right: 64px;
+  white-space: nowrap;
+}
+
+/* Individual logo */
+
+.payment-logo {
+  display: flex;
+  flex: 0 0 150px;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  min-height: 68px;
+}
+
+.payment-logo img {
+  display: block;
+  width: auto;
+  max-width: 145px;
+  max-height: 54px;
+  object-fit: contain;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.payment-logo--wide {
+  flex-basis: 185px;
+  width: 185px;
+}
+
+.payment-logo--wide img {
+  max-width: 175px;
+}
+
+.payment-logo:hover img {
+  opacity: 0.82;
+  transform: scale(1.06);
+}
+
+/* Infinite right-to-left animation */
+
+@keyframes payment-logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================
+   FINANCE DISCLAIMER
+======================================== */
+
+.finance-note {
+  max-width: 920px;
+  margin: 22px auto 0;
+  color: var(--body);
+  font-size: 12.5px;
+  font-style: italic;
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 920px) {
   .pp-wrap {
     grid-template-columns: 1fr;
@@ -140,5 +365,105 @@
 
   .logo-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .payment-logo-track {
+    animation-duration: 26s;
+  }
+
+  .payment-logo-group {
+    gap: 48px;
+    padding-right: 48px;
+  }
+
+  .payment-logo {
+    flex-basis: 135px;
+    width: 135px;
+  }
+
+  .payment-logo img {
+    max-width: 130px;
+    max-height: 50px;
+  }
+
+  .payment-logo--wide {
+    flex-basis: 165px;
+    width: 165px;
+  }
+
+  .payment-logo--wide img {
+    max-width: 155px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 620px) {
+  .payment-details,
+  .payment-options {
+    margin-top: 42px;
+  }
+
+  .program-list {
+    grid-template-columns: 1fr;
+  }
+
+  .program-item {
+    padding: 23px 0;
+  }
+
+  .program-item + .program-item {
+    padding: 23px 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .nib-note {
+    margin-top: 28px;
+  }
+
+  .payment-logo-grid {
+    padding: 25px 0;
+  }
+
+  .payment-logo-track {
+    animation-duration: 23s;
+  }
+
+  .payment-logo-group {
+    gap: 36px;
+    padding-right: 36px;
+  }
+
+  .payment-logo {
+    flex-basis: 115px;
+    width: 115px;
+    min-height: 56px;
+  }
+
+  .payment-logo img {
+    max-width: 110px;
+    max-height: 43px;
+  }
+
+  .payment-logo--wide {
+    flex-basis: 145px;
+    width: 145px;
+  }
+
+  .payment-logo--wide img {
+    max-width: 135px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .payment-logo-track {
+    animation-play-state: paused;
   }
 }
