@@ -1,130 +1,197 @@
+/* ========================================
+   TEAM SECTION
+======================================== */
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
+/* Full-image dentist card */
+
 .tm {
-  display: flex;
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(29, 59, 87, 0.06);
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  background: var(--navy);
+  box-shadow: 0 12px 30px rgba(29, 59, 87, 0.14);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
 }
 
 .tm:hover {
-  box-shadow: 0 20px 42px rgba(29, 59, 87, 0.15);
-  transform: translateY(-6px);
+  box-shadow: 0 26px 52px rgba(29, 59, 87, 0.25);
+  transform: translateY(-8px);
 }
 
-.tm .av {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 5; /* Taller portrait image */
-  background: linear-gradient(
-    160deg,
-    var(--sky-soft),
-    var(--sky)
-  );
-}
+/* Image covering the entire card */
 
-
-.tm .av::after {
+.tm__image {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  height: 42%;
-  background: linear-gradient(
-    to top,
-    rgba(29, 59, 87, 0.7),
-    transparent
-  );
-  content: "";
-  pointer-events: none;
-}
-
-.tm .av img {
+  z-index: -2;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 18%;
+  transition:
+    filter 0.6s ease,
+    transform 0.8s ease;
+}
+
+.tm:hover .tm__image {
+  filter: brightness(0.92);
+  transform: scale(1.055);
+}
+
+/* Individual image positioning */
+
+.tm:nth-child(1) .tm__image {
+  object-position: center 20%;
+}
+
+.tm:nth-child(2) .tm__image {
+  object-position: center 16%;
+}
+
+.tm:nth-child(3) .tm__image {
+  object-position: center 18%;
+}
+
+/* Dark gradient behind the name */
+
+.tm__overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 43, 63, 0.98) 0%,
+    rgba(29, 59, 87, 0.78) 26%,
+    rgba(29, 59, 87, 0.18) 58%,
+    transparent 76%
+  );
+  transition: background 0.45s ease;
+}
+
+.tm:hover .tm__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(20, 43, 63, 1) 0%,
+    rgba(29, 59, 87, 0.84) 30%,
+    rgba(29, 59, 87, 0.24) 64%,
+    transparent 80%
+  );
+}
+
+/* Text inside the background image */
+
+.tm__content {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px 26px;
+  color: #fff;
+  transform: translateY(4px);
   transition: transform 0.4s ease;
 }
 
-.tm:hover .av img {
-  transform: scale(1.04);
+.tm:hover .tm__content {
+  transform: translateY(0);
 }
 
-.tm .av .chip {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  z-index: 2;
+.tm__role {
+  display: inline-flex;
+  margin-bottom: 11px;
   padding: 6px 12px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
-  background: rgba(29, 59, 87, 0.88);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--sky);
+  backdrop-filter: blur(8px);
   font-family: var(--head);
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  backdrop-filter: blur(6px);
-}
-
-.tm .bd {
-  flex: 1;
-  padding: 20px 18px 24px;
-  text-align: center;
 }
 
 .tm h3 {
   margin: 0;
-  color: var(--navy);
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.tm .role {
-  margin-top: 5px;
-  color: var(--slate);
+  color: #fff;
   font-family: var(--head);
-  font-size: 12.5px;
-  font-weight: 500;
+  font-size: clamp(21px, 2vw, 27px);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .team-actions {
-  margin-top: 36px;
+  margin-top: 38px;
   text-align: center;
 }
 
-
 /* Tablet */
+
 @media (max-width: 920px) {
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .tm .av {
-    aspect-ratio: 4 / 4.5;
+  .tm {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Centre the third dentist */
+
+  .tm:last-child {
+    width: calc(50% - 11px);
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 
 /* Mobile */
+
 @media (max-width: 620px) {
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .tm .av {
+  .tm,
+  .tm:last-child {
+    width: 100%;
+    max-width: 440px;
     aspect-ratio: 4 / 5;
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .tm__content {
+    padding: 25px 22px;
+  }
+
+  .tm h3 {
+    font-size: 23px;
+  }
+
+  .team-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm,
+  .tm__image,
+  .tm__content {
+    transition: none;
   }
 }
