@@ -1018,8 +1018,8 @@ h2 {
 
 .about-team__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .about-team__member {
@@ -1074,6 +1074,10 @@ h2 {
 }
 
 .about-team__member:nth-child(3) .about-team__image {
+  object-position: center 18%;
+}
+
+.about-team__member:nth-child(4) .about-team__image {
   object-position: center 18%;
 }
 
@@ -1252,7 +1256,10 @@ h2 {
   }
 
   .about-team__member {
+    width: 100%;
     min-height: 540px;
+    grid-column: auto;
+    justify-self: stretch;
   }
 
   /* Centre the third dentist */
@@ -1274,8 +1281,7 @@ h2 {
     gap: 18px;
   }
 
-  .about-team__member,
-  .about-team__member:last-child {
+  .about-team__member {
     width: 100%;
     max-width: 440px;
     min-height: 500px;
@@ -1290,7 +1296,6 @@ h2 {
   .about-team__content h3 {
     font-size: 23px;
   }
-
   .about-staff {
     margin-top: 48px;
   }

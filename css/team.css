@@ -4,11 +4,9 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
-
-/* Full-image dentist card */
 
 .tm {
   position: relative;
@@ -29,7 +27,7 @@
   transform: translateY(-8px);
 }
 
-/* Image covering the entire card */
+/* Full-card image */
 
 .tm__image {
   position: absolute;
@@ -64,7 +62,11 @@
   object-position: center 18%;
 }
 
-/* Dark gradient behind the name */
+.tm:nth-child(4) .tm__image {
+  object-position: center 18%;
+}
+
+/* Image gradient */
 
 .tm__overlay {
   position: absolute;
@@ -90,7 +92,7 @@
   );
 }
 
-/* Text inside the background image */
+/* Name and role inside the image */
 
 .tm__content {
   position: absolute;
@@ -98,7 +100,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 30px 26px;
+  padding: 28px 22px;
   color: #fff;
   transform: translateY(4px);
   transition: transform 0.4s ease;
@@ -128,7 +130,7 @@
   margin: 0;
   color: #fff;
   font-family: var(--head);
-  font-size: clamp(21px, 2vw, 27px);
+  font-size: clamp(19px, 1.7vw, 25px);
   font-weight: 600;
   line-height: 1.25;
 }
@@ -138,7 +140,7 @@
   text-align: center;
 }
 
-/* Tablet */
+/* Tablet: two cards on top and two below */
 
 @media (max-width: 920px) {
   .team-grid {
@@ -146,19 +148,14 @@
   }
 
   .tm {
+    width: 100%;
     aspect-ratio: 4 / 5;
-  }
-
-  /* Centre the third dentist */
-
-  .tm:last-child {
-    width: calc(50% - 11px);
-    grid-column: 1 / -1;
-    justify-self: center;
+    grid-column: auto;
+    justify-self: stretch;
   }
 }
 
-/* Mobile */
+/* Mobile: one card per row */
 
 @media (max-width: 620px) {
   .team-grid {
@@ -166,8 +163,7 @@
     gap: 18px;
   }
 
-  .tm,
-  .tm:last-child {
+  .tm {
     width: 100%;
     max-width: 440px;
     aspect-ratio: 4 / 5;
