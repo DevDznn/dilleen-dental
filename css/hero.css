@@ -111,6 +111,29 @@
   gap: 7px;
 }
 
+.gbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gbadge:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.gbadge:focus-visible {
+  outline: 3px solid var(--sky, #cfe7f2);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
 /* Right-side image */
 .hero-art {
   position: relative;
