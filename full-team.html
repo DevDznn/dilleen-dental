@@ -1,15 +1,14 @@
-<!-- services.html -->
-
 <!doctype html>
 
 <html lang="en">
-  <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>
-        Dilleen Dental — Rockhampton Dentist | Because Smiles Matter
-      </title>
+      <meta
+        name="description"
+        content="Meet the Dilleen Dental team providing thoughtful, personalised dental care for the Rockhampton community."
+      />
+      <title>Our Team | Dilleen Dental</title>
 
       <link
         rel="icon"
@@ -98,40 +97,42 @@
        TEAM HERO
   ========================================= -->
 
-        <section class="full-team-hero">
-          <div class="full-team-hero__media">
+        <section class="page-hero">
+          <div class="page-hero__media">
             <img
-              src="images/team/full-team-hero.jpg"
+              src="images/who-we-are-bg.png"
               alt="The Dilleen Dental team at the Rockhampton clinic"
             />
           </div>
 
-          <div class="full-team-hero__overlay"></div>
+          <div class="page-hero__overlay" aria-hidden="true"></div>
 
-          <div class="wrap full-team-hero__content">
-            <p class="ft-eyebrow">The Dilleen Dental Team</p>
+          <div class="wrap page-hero__content">
+            <p class="page-hero__eyebrow">The Dilleen Dental Team</p>
 
-            <h1>Experienced care.<br />Genuine connections.</h1>
+            <h1>Experienced care.<br /><em>Genuine connections.</em></h1>
 
-            <p>
+            <p class="page-hero__description">
               Meet the dentists caring for Rockhampton smiles with thoughtful,
               personalised treatment from our Archer Street practice.
             </p>
 
-            <div class="full-team-hero__actions">
-              <a class="ft-button ft-button--light" href="#our-dentists">
+            <div class="page-hero__actions">
+              <a class="page-hero__button" href="#our-dentists">
                 Meet our dentists
               </a>
 
-              <a class="ft-text-link ft-text-link--light" href="#smile-gallery">
+              <a class="page-hero__link" href="#smile-gallery">
                 View our work <span>↓</span>
               </a>
             </div>
           </div>
 
-          <div class="full-team-hero__stat">
-            <strong>4</strong>
-            <span>dentists providing care for the Rockhampton community</span>
+          <div class="page-hero__stat">
+            <strong class="page-hero__stat-number">4</strong>
+            <span class="page-hero__stat-text">
+              dentists providing care for the Rockhampton community
+            </span>
           </div>
         </section>
 
@@ -180,66 +181,102 @@
 
         <section class="team-profiles" id="our-dentists">
           <div class="wrap">
-            <div class="team-profiles__heading rv">
-              <p class="ft-eyebrow">Meet the dentists</p>
-              <h2>The people behind your care.</h2>
+            <div class="team-profiles__intro rv">
+              <div class="team-profiles__heading">
+                <p class="ft-eyebrow">Meet the dentists</p>
+                <h2>Get to know the people behind your care.</h2>
+              </div>
+
+              <p class="team-profiles__summary">
+                Every dentist brings their own experience and approach, while
+                sharing the same commitment to thoughtful, personalised care
+                for the Rockhampton community.
+              </p>
             </div>
+
+            <nav class="team-profile-nav rv" aria-label="Dentist profiles">
+              <a href="#dr-ryan-chen">Ryan Chen</a>
+              <a href="#dr-priyanka-rathi">Priyanka Rathi</a>
+              <a href="#dr-chris-xu">Chris Xu</a>
+              <a href="#dr-hitesh-rathi">Hitesh Rathi</a>
+            </nav>
 
             <div class="doctor-profiles">
               <!-- DR RYAN CHEN -->
 
-              <article class="doctor-profile rv" id="dr-ryan-chen">
-                <div class="doctor-profile__photo">
-                  <img
-                    src="images/dr.ryan.jpg"
-                    alt="Dr Ryan Chen, Dentist at Dilleen Dental"
-                    loading="lazy"
-                  />
+              <article
+                class="doctor-profile rv"
+                id="dr-ryan-chen"
+                aria-labelledby="dr-ryan-chen-name"
+              >
+                <header class="doctor-profile__header">
+                  <span class="doctor-profile__number" aria-hidden="true">01</span>
+                  <div>
+                    <p class="doctor-profile__role">Dentist</p>
+                    <h3 id="dr-ryan-chen-name">Dr Ryan Chen</h3>
+                  </div>
+                  <span class="doctor-profile__location">
+                    Dilleen Dental · Rockhampton
+                  </span>
+                </header>
 
-                  <span class="doctor-profile__photo-label">Dentist</span>
+                <div class="doctor-profile__body">
+                  <figure class="doctor-profile__photo">
+                    <img
+                      src="images/dr.ryan.jpg"
+                      alt="Dr Ryan Chen, Dentist at Dilleen Dental"
+                      loading="lazy"
+                    />
+                    <figcaption>Calm, patient-focused dental care</figcaption>
+                  </figure>
+
+                  <div class="doctor-profile__content">
+                    <p class="doctor-profile__lead">
+                      Ryan combines a calm, patient-focused approach with a
+                      strong interest in cosmetic, restorative and comprehensive
+                      dentistry.
+                    </p>
+
+                    <div class="doctor-profile__bio">
+                      <p>
+                        Ryan’s dental journey began when he left Singapore to
+                        pursue his passion at the University of Queensland,
+                        where he graduated with first-class honours. His
+                        education and career have been enriched by experience
+                        and mentorship at respected clinics throughout
+                        Queensland, including Brisbane, Dalby and Rockhampton
+                        Hospital.
+                      </p>
+
+                      <p>
+                        Ryan enjoys all aspects of dentistry and has a particular
+                        interest in cosmetic and aesthetic procedures, full-mouth
+                        rehabilitation and natural-looking composite
+                        restorations. He is also committed to continuing
+                        education in oral surgery, with a focus on making
+                        extractions as comfortable and efficient as possible.
+                      </p>
+
+                      <p>
+                        Outside dentistry, Ryan enjoys football, fishing,
+                        camping, travelling and recreating dishes inspired by
+                        his culinary adventures.
+                      </p>
+                    </div>
+
+                    <div class="doctor-profile__services">
+                      <p>Clinical interests</p>
+                      <div class="doctor-profile__interests">
+                        <span>Cosmetic dentistry</span>
+                        <span>Full-mouth rehabilitation</span>
+                        <span>Restorative dentistry</span>
+                        <span>Oral surgery</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="doctor-profile__content">
-                  <p class="doctor-profile__role">Dentist</p>
-                  <h3>Dr Ryan Chen</h3>
-
-                  <p class="doctor-profile__lead">
-                    Ryan combines a calm, patient-focused approach with a strong
-                    interest in cosmetic, restorative and comprehensive
-                    dentistry.
-                  </p>
-
-                  <p>
-                    Ryan’s dental journey began when he left Singapore to pursue
-                    his passion at the University of Queensland, where he
-                    graduated with first-class honours. His education and career
-                    have been enriched by experience and mentorship at respected
-                    clinics throughout Queensland, including Brisbane, Dalby and
-                    Rockhampton Hospital.
-                  </p>
-
-                  <p>
-                    Ryan enjoys all aspects of dentistry and has a particular
-                    interest in cosmetic and aesthetic procedures, full-mouth
-                    rehabilitation and natural-looking composite restorations.
-                    He is also committed to continuing education in oral
-                    surgery, with a focus on making extractions as comfortable
-                    and efficient as possible.
-                  </p>
-
-                  <p>
-                    Outside dentistry, Ryan enjoys football, fishing, camping,
-                    travelling and recreating dishes inspired by his culinary
-                    adventures.
-                  </p>
-
-                  <div class="doctor-profile__interests">
-                    <span>Cosmetic dentistry</span>
-                    <span>Full-mouth rehabilitation</span>
-                    <span>Restorative dentistry</span>
-                    <span>Oral surgery</span>
-                  </div>
-
+                <footer class="doctor-profile__footer">
                   <dl class="doctor-profile__details">
                     <div>
                       <dt>Available</dt>
@@ -248,7 +285,6 @@
                         Alternating Fridays, 8:00am–5:00pm
                       </dd>
                     </div>
-
                     <div>
                       <dt>Provider number</dt>
                       <dd>6705481H</dd>
@@ -261,53 +297,63 @@
                   >
                     Book an appointment
                   </a>
-                </div>
+                </footer>
               </article>
 
               <!-- DR PRIYANKA RATHI -->
 
               <article
-                class="doctor-profile doctor-profile--reverse rv"
+                class="doctor-profile rv"
                 id="dr-priyanka-rathi"
+                aria-labelledby="dr-priyanka-rathi-name"
               >
-                <div class="doctor-profile__photo">
-                  <img
-                    src="images/dr-priyanka-2.png"
-                    alt="Dr Priyanka Rathi, Principal Dentist at Dilleen Dental"
-                    loading="lazy"
-                  />
-
-                  <span class="doctor-profile__photo-label">
-                    Principal Dentist
+                <header class="doctor-profile__header">
+                  <span class="doctor-profile__number" aria-hidden="true">02</span>
+                  <div>
+                    <p class="doctor-profile__role">Principal Dentist</p>
+                    <h3 id="dr-priyanka-rathi-name">Dr Priyanka Rathi</h3>
+                  </div>
+                  <span class="doctor-profile__location">
+                    Dilleen Dental · Rockhampton
                   </span>
+                </header>
+
+                <div class="doctor-profile__body">
+                  <figure class="doctor-profile__photo">
+                    <img
+                      src="images/dr-priyanka-2.png"
+                      alt="Dr Priyanka Rathi, Principal Dentist at Dilleen Dental"
+                      loading="lazy"
+                    />
+                    <figcaption>Principal Dentist at Dilleen Dental</figcaption>
+                  </figure>
+
+                  <div class="doctor-profile__content">
+                    <p class="doctor-profile__lead">
+                      Dr Priyanka Rathi is the Principal Dentist at Dilleen
+                      Dental and helps lead the clinical care provided at our
+                      Archer Street practice.
+                    </p>
+
+                    <div class="doctor-profile__bio">
+                      <p>
+                        Priyanka cares for patients at Dilleen Dental from Monday
+                        to Thursday, supporting the dental needs of individuals
+                        and families from across the Rockhampton community.
+                      </p>
+                    </div>
+
+                    <!-- Add Dr Priyanka’s approved biography and clinical
+                         interests here when they have been supplied. -->
+                  </div>
                 </div>
 
-                <div class="doctor-profile__content">
-                  <p class="doctor-profile__role">Principal Dentist</p>
-                  <h3>Dr Priyanka Rathi</h3>
-
-                  <p class="doctor-profile__lead">
-                    Dr Priyanka Rathi is the Principal Dentist at Dilleen Dental
-                    and helps lead the clinical care provided at our Archer
-                    Street practice.
-                  </p>
-
-                  <p>
-                    Priyanka cares for patients at Dilleen Dental from Monday to
-                    Thursday, supporting the dental needs of individuals and
-                    families from across the Rockhampton community.
-                  </p>
-
-                  <!-- Add Dr Priyanka’s approved professional biography here
-                 when qualifications, experience and clinical interests
-                 have been supplied. -->
-
+                <footer class="doctor-profile__footer">
                   <dl class="doctor-profile__details">
                     <div>
                       <dt>Available</dt>
                       <dd>Monday–Thursday, 8:30am–3:00pm</dd>
                     </div>
-
                     <div>
                       <dt>Provider number</dt>
                       <dd>4697827L</dd>
@@ -320,40 +366,57 @@
                   >
                     Book an appointment
                   </a>
-                </div>
+                </footer>
               </article>
 
               <!-- DR CHRIS XU -->
 
-              <article class="doctor-profile rv" id="dr-chris-xu">
-                <div class="doctor-profile__photo">
-                  <img
-                    src="images/dr-chris-2.png"
-                    alt="Dr Chris Xu, Dentist at Dilleen Dental"
-                    loading="lazy"
-                  />
+              <article
+                class="doctor-profile rv"
+                id="dr-chris-xu"
+                aria-labelledby="dr-chris-xu-name"
+              >
+                <header class="doctor-profile__header">
+                  <span class="doctor-profile__number" aria-hidden="true">03</span>
+                  <div>
+                    <p class="doctor-profile__role">Dentist</p>
+                    <h3 id="dr-chris-xu-name">Dr Chris Xu</h3>
+                  </div>
+                  <span class="doctor-profile__location">
+                    Dilleen Dental · Rockhampton
+                  </span>
+                </header>
 
-                  <span class="doctor-profile__photo-label">Dentist</span>
+                <div class="doctor-profile__body">
+                  <figure class="doctor-profile__photo">
+                    <img
+                      src="images/dr-chris-2.png"
+                      alt="Dr Chris Xu, Dentist at Dilleen Dental"
+                      loading="lazy"
+                    />
+                    <figcaption>Welcoming, professional dental care</figcaption>
+                  </figure>
+
+                  <div class="doctor-profile__content">
+                    <p class="doctor-profile__lead">
+                      Dr Chris Xu is part of the clinical team caring for
+                      patients at Dilleen Dental’s South Rockhampton practice.
+                    </p>
+
+                    <div class="doctor-profile__bio">
+                      <p>
+                        Chris works alongside our dentists and support staff to
+                        provide dental care in a welcoming and professional
+                        environment.
+                      </p>
+                    </div>
+
+                    <!-- Add Dr Chris Xu’s approved biography, qualifications
+                         and clinical interests here when supplied. -->
+                  </div>
                 </div>
 
-                <div class="doctor-profile__content">
-                  <p class="doctor-profile__role">Dentist</p>
-                  <h3>Dr Chris Xu</h3>
-
-                  <p class="doctor-profile__lead">
-                    Dr Chris Xu is part of the clinical team caring for patients
-                    at Dilleen Dental’s South Rockhampton practice.
-                  </p>
-
-                  <p>
-                    Chris works alongside our dentists and support staff to
-                    provide dental care in a welcoming and professional
-                    environment.
-                  </p>
-
-                  <!-- Replace this area with Dr Chris Xu’s approved biography,
-                 qualifications, clinical interests and working hours. -->
-
+                <footer class="doctor-profile__footer">
                   <dl class="doctor-profile__details">
                     <div>
                       <dt>Appointments</dt>
@@ -367,50 +430,62 @@
                   >
                     Book an appointment
                   </a>
-                </div>
+                </footer>
               </article>
 
               <!-- DR HITESH RATHI -->
 
               <article
-                class="doctor-profile doctor-profile--reverse rv"
+                class="doctor-profile rv"
                 id="dr-hitesh-rathi"
+                aria-labelledby="dr-hitesh-rathi-name"
               >
-                <div class="doctor-profile__photo">
-                  <img
-                    src="images/dr-hitesh-rathi.jpg"
-                    alt="Dr Hitesh Rathi, Dentist at Dilleen Dental"
-                    loading="lazy"
-                  />
+                <header class="doctor-profile__header">
+                  <span class="doctor-profile__number" aria-hidden="true">04</span>
+                  <div>
+                    <p class="doctor-profile__role">Dentist</p>
+                    <h3 id="dr-hitesh-rathi-name">Dr Hitesh Rathi</h3>
+                  </div>
+                  <span class="doctor-profile__location">
+                    Dilleen Dental · Rockhampton
+                  </span>
+                </header>
 
-                  <span class="doctor-profile__photo-label">Dentist</span>
+                <div class="doctor-profile__body">
+                  <figure class="doctor-profile__photo">
+                    <img
+                      src="images/dr-hetish.png"
+                      alt="Dr Hitesh Rathi, Dentist at Dilleen Dental"
+                      loading="lazy"
+                    />
+                    <figcaption>Friday afternoon appointments</figcaption>
+                  </figure>
+
+                  <div class="doctor-profile__content">
+                    <p class="doctor-profile__lead">
+                      Dr Hitesh Rathi provides dental care at Dilleen Dental on
+                      alternating Friday afternoons.
+                    </p>
+
+                    <div class="doctor-profile__bio">
+                      <p>
+                        Hitesh is part of our welcoming clinical team, supporting
+                        patients from our conveniently located Archer Street
+                        practice.
+                      </p>
+                    </div>
+
+                    <!-- Add Dr Hitesh’s approved biography and clinical
+                         interests here when they have been supplied. -->
+                  </div>
                 </div>
 
-                <div class="doctor-profile__content">
-                  <p class="doctor-profile__role">Dentist</p>
-                  <h3>Dr Hitesh Rathi</h3>
-
-                  <p class="doctor-profile__lead">
-                    Dr Hitesh Rathi provides dental care at Dilleen Dental on
-                    alternating Friday afternoons.
-                  </p>
-
-                  <p>
-                    Hitesh is part of our welcoming clinical team, supporting
-                    patients from our conveniently located Archer Street
-                    practice.
-                  </p>
-
-                  <!-- Add Dr Hitesh’s approved professional biography here
-                 when qualifications, experience and clinical interests
-                 have been supplied. -->
-
+                <footer class="doctor-profile__footer">
                   <dl class="doctor-profile__details">
                     <div>
                       <dt>Available</dt>
                       <dd>Alternating Fridays, 12:30pm–5:00pm</dd>
                     </div>
-
                     <div>
                       <dt>Provider number</dt>
                       <dd>4320019A</dd>
@@ -423,7 +498,7 @@
                   >
                     Book an appointment
                   </a>
-                </div>
+                </footer>
               </article>
             </div>
           </div>
@@ -736,6 +811,8 @@
           </div>
         </section>
 
+      </main>
+
         <footer>
           <div class="wrap">
             <div class="top">
@@ -851,7 +928,5 @@
             </div>
           </div>
         </footer>
-      </main>
     </body>
-  </html>
 </html>
