@@ -3,7 +3,7 @@
 ======================================== */
 
 .full-team-page {
-  overflow: hidden;
+  overflow: clip;
   color: var(--body, #536779);
   background: #fff;
 }
@@ -298,14 +298,9 @@
 ======================================== */
 
 .team-profiles {
+  --team-profile-surface: var(--paper, #f7f5f1);
   padding: clamp(72px, 9vw, 118px) 0;
-  background:
-    radial-gradient(
-      circle at 92% 4%,
-      rgba(207, 231, 242, 0.72),
-      transparent 31rem
-    ),
-    var(--paper, #f7f5f1);
+  background: var(--team-profile-surface);
 }
 
 .team-profiles__intro {
@@ -342,7 +337,7 @@
   padding: 10px 17px;
   border: 1px solid rgba(43, 72, 102, 0.2);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.74);
+  background: transparent;
   color: var(--navy, #2b4866);
   font-family: var(--head, inherit);
   font-size: 12px;
@@ -369,26 +364,16 @@
 
 .doctor-profile {
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line, #dae3e9);
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 24px 70px rgba(29, 59, 87, 0.1);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: var(--team-profile-surface);
+  box-shadow: none;
   scroll-margin-top: calc(var(--header-height, 78px) + 22px);
 }
 
 .doctor-profile::before {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  width: 150px;
-  height: 150px;
-  border: 1px solid rgba(207, 231, 242, 0.18);
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
-  transform: translate(44%, -50%);
+  content: none;
 }
 
 .doctor-profile__header {
@@ -397,6 +382,7 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 22px;
+  z-index: 0;
   padding: 27px clamp(26px, 4vw, 48px);
   background: linear-gradient(
     115deg,
@@ -404,6 +390,7 @@
     #355875 62%,
     var(--slate, #6e84a0) 100%
   );
+  border-radius: 18px;
 }
 
 .doctor-profile__number {
@@ -456,7 +443,7 @@
 .doctor-profile__body {
   display: grid;
   grid-template-columns: minmax(310px, 0.82fr) minmax(0, 1.18fr);
-  align-items: start;
+  align-items: stretch;
   gap: clamp(34px, 5vw, 70px);
   padding: clamp(28px, 4vw, 48px);
 }
@@ -513,6 +500,10 @@
 }
 
 .doctor-profile__content {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
   padding: clamp(8px, 2vw, 22px) clamp(0px, 1vw, 12px) 8px 0;
 }
 
@@ -529,9 +520,39 @@
   line-height: 1.5;
 }
 
+.doctor-profile__bio-shell {
+  position: relative;
+  min-height: 0;
+}
+
 .doctor-profile__bio {
   display: grid;
   gap: 15px;
+  max-height: min(360px, 55svh);
+  padding-right: 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--slate, #6e84a0) transparent;
+  scrollbar-width: thin;
+}
+
+.doctor-profile__bio:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid var(--sky, #cfe7f2);
+  outline-offset: 4px;
+}
+
+.doctor-profile__bio::-webkit-scrollbar {
+  width: 7px;
+}
+
+.doctor-profile__bio::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doctor-profile__bio::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--slate, #6e84a0);
 }
 
 .doctor-profile__bio p {
@@ -541,12 +562,108 @@
   line-height: 1.76;
 }
 
+.doctor-profile__bio-shell.is-scrollable .doctor-profile__bio {
+  padding-bottom: 62px;
+}
+
+.doctor-profile__bio-shell.has-more::after {
+  position: absolute;
+  z-index: 1;
+  right: 7px;
+  bottom: 0;
+  left: 0;
+  height: 82px;
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 245, 241, 0),
+    var(--team-profile-surface) 68%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.doctor-profile__bio-scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 15px;
+  border: 1px solid rgba(43, 72, 102, 0.18);
+  border-radius: 999px;
+  background: var(--navy, #2b4866);
+  box-shadow: 0 8px 22px rgba(43, 72, 102, 0.18);
+  color: #fff;
+  font-family: var(--head, inherit);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.doctor-profile__bio-scroll:hover {
+  background: #355875;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.doctor-profile__bio-scroll:focus-visible {
+  outline: 3px solid var(--sky, #cfe7f2);
+  outline-offset: 3px;
+}
+
+.doctor-profile__bio-scroll[hidden] {
+  display: none;
+}
+
 .doctor-profile__services {
-  margin-top: 28px;
-  padding: 22px;
-  border: 1px solid rgba(110, 132, 160, 0.18);
-  border-radius: 16px;
-  background: var(--sky-soft, #edf7fb);
+  flex: 0 0 auto;
+  margin-top: 22px;
+  padding: 22px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(110, 132, 160, 0.24);
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (min-width: 821px) {
+  .doctor-profile__body {
+    height: clamp(500px, 46vw, 620px);
+  }
+
+  .doctor-profile__photo {
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .doctor-profile__content {
+    height: 100%;
+  }
+
+  .doctor-profile__content .doctor-profile__lead {
+    flex: 0 0 auto;
+    margin-bottom: 21px;
+    padding-bottom: 20px;
+  }
+
+  .doctor-profile__bio-shell {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .doctor-profile__bio {
+    height: 100%;
+    max-height: none;
+  }
 }
 
 .doctor-profile__services > p {
@@ -569,7 +686,7 @@
   padding: 8px 12px;
   border: 1px solid rgba(43, 72, 102, 0.16);
   border-radius: 999px;
-  background: #fff;
+  background: rgba(207, 231, 242, 0.5);
   color: var(--navy, #2b4866);
   font-family: var(--head, inherit);
   font-size: 10.5px;
@@ -583,7 +700,7 @@
   gap: 30px;
   padding: 25px clamp(26px, 4vw, 48px);
   border-top: 1px solid var(--line, #dae3e9);
-  background: linear-gradient(110deg, #f7fbfd, var(--sky-soft, #edf7fb));
+  background: transparent;
 }
 
 .doctor-profile__details {
@@ -630,6 +747,64 @@
 
 .doctor-profile__footer .ft-button {
   flex: 0 0 auto;
+}
+
+/* ========================================
+   STICKY STACKED PROFILE SCROLL
+
+   Each following dentist rises over the
+   previous profile and settles in the same
+   position below the sticky site header.
+======================================== */
+
+@media (min-width: 821px) and (min-height: 780px) {
+  .doctor-profiles {
+    --doctor-sticky-top: calc(var(--header-height, 78px) + 20px);
+    gap: 0;
+    align-items: start;
+    padding-bottom: clamp(26px, 4vh, 52px);
+  }
+
+  .doctor-profile {
+    position: sticky;
+    top: var(--doctor-sticky-top);
+    display: grid;
+    min-height: 0;
+    grid-template-rows: auto auto auto;
+    margin-bottom: clamp(64px, 9vh, 104px);
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .doctor-profile:nth-child(1) {
+    z-index: 1;
+  }
+
+  .doctor-profile:nth-child(2) {
+    z-index: 2;
+  }
+
+  .doctor-profile:nth-child(3) {
+    z-index: 3;
+  }
+
+  .doctor-profile:nth-child(4) {
+    z-index: 4;
+    margin-bottom: 0;
+  }
+
+  .doctor-profile__body {
+    align-items: stretch;
+  }
+
+  .doctor-profile__photo {
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .doctor-profile__content {
+    align-self: stretch;
+  }
 }
 
 /* ========================================
@@ -928,6 +1103,10 @@
   .doctor-profile__content {
     padding: 4px 0 8px;
   }
+
+  .doctor-profile__bio {
+    max-height: min(360px, 55svh);
+  }
 }
 
 /* ========================================
@@ -954,13 +1133,14 @@
   }
 
   .doctor-profile {
-    border-radius: 18px;
+    border-radius: 0;
   }
 
   .doctor-profile__header {
     grid-template-columns: auto minmax(0, 1fr);
     gap: 15px;
     padding: 22px 20px;
+    border-radius: 14px;
   }
 
   .doctor-profile__number {
@@ -993,7 +1173,7 @@
   }
 
   .doctor-profile__services {
-    padding: 18px;
+    padding: 18px 0 0;
   }
 
   .doctor-profile__footer {

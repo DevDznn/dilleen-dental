@@ -140,6 +140,18 @@
   text-align: center;
 }
 
+.tm {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tm:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 5px;
+}
+
 /* Tablet: two cards on top and two below */
 
 @media (max-width: 920px) {
